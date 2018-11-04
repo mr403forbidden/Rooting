@@ -1,8 +1,8 @@
 /*
 * (un)comment correct payload first (x86 or x64)!
 * 
-* $ gcc cowroot.c -o cowroot -pthread
-* $ ./cowroot
+* $ gcc cow.c -o cow -pthread
+* $ ./cow
 * DirtyCow root privilege escalation
 * Backing up /usr/bin/passwd.. to /home/buscamos/bak
 * Size of binary: 57048
