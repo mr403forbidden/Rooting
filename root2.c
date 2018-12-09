@@ -14,7 +14,7 @@
 //   https://github.com/dirtycow/dirtycow.github.io/blob/master/pokemon.c
 //
 // Compile with:
-//   gcc -pthread root.c -o root -lcrypt
+//   gcc -pthread root2.c -o root -lcrypt
 //
 // Then run the newly create binary by either doing:
 //   "./exploit" or "./exploit my-new-password"
